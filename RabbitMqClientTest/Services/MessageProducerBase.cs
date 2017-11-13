@@ -35,6 +35,7 @@ namespace RabbitMqClientTest.Services
 			lock (_lockObject)
 			{
 				if (_isInitialized || _isInitializing) return;
+				_isInitializing = true;
 			}
 
 			try

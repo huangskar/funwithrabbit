@@ -38,11 +38,11 @@ namespace RabbitMqClientTest.Services
 			lock (_lockObject)
 			{
 				if (_isInitialized || _isInitializing) return;
+				_isInitializing = true;
 			}
 
 			try
 			{
-				_isInitializing = true;
 				_connection = _connectionFactory.CreateConnection();
 				_channel = _connection.CreateModel();
 				_exchangeName = $"EXCH_{typeof(TMessage).FullName}";
